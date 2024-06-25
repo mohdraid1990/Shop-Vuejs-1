@@ -10,11 +10,27 @@ const routes = [
     },
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/Shop",
+    name: "Shop",
+    component: () => import("../views/ShopApp.vue"),
+    meta: {
+      title: "Shop",
+    },
+  },
+  {
+    path: "/About",
+    name: "About",
     component: () => import("../views/AboutView.vue"),
     meta: {
       title: "About",
+    },
+  },
+  {
+    path: "/product/:id",
+    name: "ProductDetail",
+    component: () => import("../components/ProductDetail.vue"),
+    meta: {
+      title: "Product Detail",
     },
   },
 ];
@@ -22,6 +38,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, fromRoute, next) => {
+  document.title = to.meta.title;
+  next();
 });
 
 export default router;
