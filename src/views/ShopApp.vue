@@ -171,4 +171,9 @@ $loading-color: #b66d6d;
   font-size: 50px;
   color: $loading-color;
 }
+@media (max-width: 480px) {
+  .loading {
+    font-size: 24px;
+  }
+}
 </style>
