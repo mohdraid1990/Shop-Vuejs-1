@@ -117,7 +117,7 @@ const navigateToShop = () => {
         font-size: 24px;
       }
       p {
-        font-size: 16px;
+        font-size: 12px;
       }
     }
     .btn {
