@@ -7,7 +7,9 @@
         </div>
         <ul v-show="!mobile" class="navigation">
           <li v-for="link in visibleRoutes" :key="link.name">
-            <router-link :to="link.path">{{ link.meta.title }}</router-link>
+            <router-link :to="link.path" @click="handleLinkClick">{{
+              link.meta.title
+            }}</router-link>
           </li>
         </ul>
         <transition
@@ -18,13 +20,14 @@
         >
           <ul v-show="mobileNav" class="dropdown-nav">
             <li v-for="link in visibleRoutes" :key="link.name">
-              <router-link :to="link.path">{{ link.meta.title }}</router-link>
+              <router-link :to="link.path" @click="handleLinkClick">{{
+                link.meta.title
+              }}</router-link>
             </li>
           </ul>
         </transition>
         <div class="cart-icon" @click="toggleCart">
           <i class="fa-solid fa-shopping-cart"></i>
-          <!-- <span class="cart-count">{{ cartItemsCount }}</span> -->
         </div>
         <div
           @click="toggleMobileNav"
@@ -44,7 +47,6 @@
     <router-view />
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
@@ -88,6 +90,12 @@ const cheackScreen = () => {
     mobile.value = true;
   } else {
     mobile.value = false;
+    mobileNav.value = false;
+  }
+};
+
+const handleLinkClick = () => {
+  if (mobile.value) {
     mobileNav.value = false;
   }
 };
