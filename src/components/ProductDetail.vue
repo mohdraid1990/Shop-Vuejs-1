@@ -215,7 +215,7 @@ $animation-duration: 0.6s;
   align-items: center;
   justify-content: center;
   height: 100px;
-  font-size: 24px;
+  font-size: 12px;
   color: $loading-color;
 }
 
