@@ -222,7 +222,7 @@ const closeCart = () => emits("close-cart");
 @media screen and (max-width: 400px) {
   .cart {
     top: 71px;
-    width: 376px;
+    width: 100%;
   }
 }
 </style>
